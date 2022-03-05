@@ -46,7 +46,6 @@ Publish a report and Hand-in through the assignment portal on Blackboard.
 
 # 2. Basic Information
 
-- This assessment is due **on or before: Thursday 13th May 2021.**
 
 - Word limit and document formatting:
 
@@ -269,19 +268,27 @@ knitr::kable(rbind(
 
 *Do not get fixated on producing the perfect statistical model, note this is only worth 5 marks overall. Check the brief to make sure you address all parts required.* 
 
-# 5. Final advice
+# 5. Guidance
 
-## 5.1 Deadline
+## 5.1 How to start
+
+* Go through the README files and look at the spreadsheets, make sure you know what is in the dataset
+
+* Come up with some initial ideas you wish to test in the data, do some reading, come up with two or three simple hypotheses with sensible biology behind them
+
+* Tidy the data, this takes time
+
+* Visualise differences and relationships before you start modelling
+
+## 5.2 Deadline
 
 All assignment deadlines are always available on e-vision. 
 
-The deadline for this assignment is **13th May 2021** 
-
 But see below! 
 
-## 5.2 Help & Support
+## 5.3 Help & Support
 
-You should make good use of the Blackboard Discussion Boards - you can submit anonymously and I will respond quickly
+You should make good use of Yammer - you can submit anonymously and I will respond quickly
 
     - Stats theory
     - R code issues
@@ -289,7 +296,7 @@ You should make good use of the Blackboard Discussion Boards - you can submit an
     
 Any major issues and you can also e-mail me and request a chat! 
 
-## 5.3 Start early!
+## 5.4 Start early!
 
 That way you can think about which dataset you want to work with, do some exploratory analysis, background reading etc. before we have even finished our linear model lectures. 
 
