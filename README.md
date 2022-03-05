@@ -14,7 +14,7 @@
 
 - Dataset: Elegans.xlsx
 
-- Excel workbook format - needs changing to csv or alternative read.xlsx
+- Excel workbook format - needs changing to csv or alternative readxl::read_excel
 
 - Note: four tabs in workbook
 
@@ -22,7 +22,7 @@ F0 : Parental generation
 
 F1: Offspring
 
-rnai: dsRNA treatment of nematodes targeting either the raga gene or ev gene for gene expression knockdown
+rnai: dsRNA treatment of nematodes targeting either the raga gene or ev (empty vector control) for gene expression knockdown
 
 treatment: dark or light exposure to light or dark (light is a stress environment for the nematode)
 
@@ -42,7 +42,7 @@ death_date: Day death recorded for nematode
 
 - Dataset: warbler.xlsx
 
-- Excel workbook format - needs changing to csv or alternative read.xlsx
+- Excel workbook format - needs changing to csv or alternative read_excel
 
 Bird identity: Unique lifetime ID for each bird
 
@@ -60,20 +60,19 @@ Year: year measurements taken
 
 "" : Monsoon season
 
-### Behavioural studies on two colour morphs of the two-spot ladybird (*Adalia bipunctata*)
+### Behavioural studies of the two-spot ladybird (*Adalia bipunctata*)
 
 CSV file
 
 Ladybird ID: unique identifier
 Sex: (F)emale, (M)ale
 Age: Age in days
-Colour - Typical or melanic
 
 Mass.ave: Average mass in grams
 
-Width2: Measure of beetle width in mm
+Width: Measure of beetle width in mm
 
-Length2: Measure of beetle length in mm
+Length: Measure of beetle length in mm
 
 Avg_area: Area of beetle in mm^2
 
@@ -89,4 +88,4 @@ NSA.time.mean: Time before exploring new surface (assay of explorativeness)
 
 P.contact.mean number of contacts with an aphid prey before attacking it 
 
-P.time.mean: Time (s) it took them to attack aphid (assay of aggression)
+

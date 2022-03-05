@@ -3,6 +3,7 @@ title: 'Second Assignment Brief 2021'
 author: 'Lecturer: Philip Leftwich, Module: UEA BIO 5023Y'
 output: 
   rmdformats::material
+  
 
       
  
@@ -22,7 +23,7 @@ With your chosen dataset you are tasked with using exploratory data analysis and
 
 - Your write-up will be in the format of a lab report
 
-- You will hand in a pdf/html/word output through Blackboard (pdf is the format that should be easiest)
+- You will hand in a pdf output through Blackboard (pdf is the format that should be easiest)
 
 - You will ALSO submit your GitHub assignment. 
 
@@ -81,7 +82,7 @@ Make sure to read the accompanying dataset READMEs for a full breakdown of the i
 
 Below I provide some hints  and ideas about how to make interesting reports for each of the datasets. Remember - you only need to analyse ONE dataset, and you don't need to analyse everything. 
 
-### Studying the effect of the gene *raga-1* on longevity and reproduction in the nematode worm (*C. elegans*)
+### Studying the effect of the gene *raga-1* and how it interacts with stress on longevity and reproduction in the nematode worm (*C. elegans*) through gene knockout
 
 - This is an *rnai* experiment to investigate the effect of a gene through knockdown
 
@@ -89,13 +90,17 @@ Below I provide some hints  and ideas about how to make interesting reports for 
 
 - Think about effects in terms of possible life-history trade-offs between lifespan and reproduction.
 
+- C.elegans are used to test epigenetic effects, so does lifehistory of parents affect their offspring?
+
 - Data originally supplied by Professor Alexei Maklakov
 
 ### Malarial infection status and body condition in the Seychelles Warbler (*Acrocephalus sechellensis*)
 
 - The Seychelles warbler is a vulnerable species of passerine songbird
 
-- Malaria infection is a binomial variable
+- Malaria infection is a binary variable
+
+- Sex is a binary variable
 
 - This data is part of a long-term study set on the impact of Avian Malaria on this vulnerable species
 
@@ -103,9 +108,9 @@ Below I provide some hints  and ideas about how to make interesting reports for 
 
 - Data originally supplied by Professor David S. Richardson
 
-### Behavioural studies on two colour morphs of the two-spot ladybird (*Adalia bipunctata*)
+### Behavioural studies on the two-spot ladybird (*Adalia bipunctata*) 
 
-- A variety of different behaviours measured that are designed to investigate boldness and aggressiveness across males and females in "Typical" and "Melanic" morphs of the two-spot ladybird
+- A variety of different behaviours measured that are designed to investigate boldness and aggressiveness across males and females in the two-spot ladybird
 
 - Descriptive analyses of morphology between sexes and morphs can be reported
 
@@ -122,7 +127,7 @@ Below I provide some hints  and ideas about how to make interesting reports for 
 
 1. Title
 
-2. Abstract. A concise summary of the background and main results (150 word limit - does not count to the 1500 word total)
+2. Abstract. A concise summary of the background and main results (150 word limit)
 
 3. Main text
 
