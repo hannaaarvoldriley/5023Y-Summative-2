@@ -308,7 +308,7 @@ All R scripts should contain:
 
 ```{r, eval = TRUE, echo = FALSE}
 downloadthis::download_link(
-  link = "https://raw.githubusercontent.com/UEABIO/5023Y-Summative-2/Examples/analysis.R",
+  link = "https://raw.githubusercontent.com/UEABIO/5023Y-Summative-2/main/Examples/analysis.R?token=GHSAT0AAAAAAB73E2O2EVRB3IM64LG7BNT4ZAPA3ZA",
   button_label = "Example analysis script",
   button_type = "success",
   has_icon = TRUE,
