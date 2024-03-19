@@ -1,5 +1,5 @@
 ---
-title: 'Second Assignment Brief 2023'
+title: 'Second Assignment Brief 2024'
 author: 'Lecturer: Philip Leftwich, Module: UEA BIO 5023Y'
 output: 
   rmdformats::material
@@ -63,14 +63,16 @@ Choose one data set to work on for your report.
     
   - Studying the cost of singing in the decorated cricket, *Gryllodes sigillatus* 
   
-  - Exploring the effect of annual temperature on body size in the butterfly *Hesperia comma*
+  - The deleterious effects of inbreeding on flight performance in the butterfly *Bicyclus anynana*
   
-  - Studying the effect of the gene *raga-1* on longevity and reproduction in the nematode worm (*C. elegans*)
+  - Measuring the effect of the parasitic tapeworm *Schistocephalus solidus* infection in the three-spined stickleback (*Gasterosteus aculeatus*)on the susceptibility to infection from a **second parasite**, the trematode *Diplostomum pseudospathaceum*
+  
+  - Measuring the effect of intervention with a probiotic on abundance of the pathogenic bacterium *Ruminococcus gnavus* in human stool samples.
+
+
   
 
               
-
-
 
 ## 2.2 Some ideas for analysis
 
@@ -95,47 +97,52 @@ The important variables from our point of view is `Delta_smi` which is the chang
 | Mass0    | Mass (g) at start of experiment  |
 | Pronotum    | Size (mm) The pronotum is a prominent plate that covers the thorax and can be used as a proxy for body size |
 
-### Size changes in a butterfly with temperature
 
-`unvoltine_butterfly.csv`
+### Inbreeding in butterflies
 
-Exploring the universal ecological responses to climate change in butterflies. This study uses museum specimens of the Silver Spotted Skipper, *Hesperia comma* to look at how size varies with annual temperature. 
+`inbreeding_butterfly.csv`
 
-- Think about possible covariates and collinearities
-
-- Will males and females respond in the same way?
-
+A study of the relationship between inbreeding and flight ability. 
 
 
 | Variable            | Definition                              |
 |---------------------|-----------------------------------------|
-| Year          | year of dated museum specimen |                      
-| forewing length       | length (mm) of measured forewing        |
-|sex    | sex of butterfly specimen       |
-| JUN_mean | mean temperature in June of that year (celsius) |
-| rain_JUN     | total rainfall (mm) for that year            |
+|ID      | Individual |                      
+|IC      | Inbreeding coefficient - three levels indicating the number of generations of sib-matings in recent family history    |
+|FII     | FII is the flight inhibition index – the number of times the butterfly settled during a two-minute period when it was being stimulated to take off immediately once it settled   |
+|body_part    | Thorax or rest of body  |
+|dry_weight    | The dry weight in (mg) of the part of the butterfly |
 
+### Parasitism in sticklebacks
 
-### Studying the effect of the gene *raga-1* and how it interacts with stress on longevity and reproduction in the nematode worm (*C. elegans*) through gene knockout
-
-- This is an *rnai* experiment to investigate the effect of a gene through knockdown
-
-- Think about effects in terms of possible life-history effects on reproduction.
-
-- *C.elegans* are used to test epigenetic effects, so does life history of parents (F0) affect their offspring (F1)?
-
-> Use `readxl::read_excel` to import from excel spreadsheet
+`parasite_exp.csv`
 
 | Variable            | Definition                              |
 |---------------------|-----------------------------------------|
-| rnai            | dsRNA treatment of nematodes targeting either the raga gene or ev (empty vector control) for gene expression knockdown |                      
-| treatment        |dark or light exposure to light or dark (light is a stress environment for the nematode)          |
-| replicate/plate       | replicate an ID number for each experiment       |
-| offspring | number of offspring produced |
-| parental treatment      | light or dark conditions experienced by the subjects parents            |
-| parental_rnai       | rnai treatment of the subjects parents |             
+|Fish_ID      | Individual |                      
+|Treatment     | Inbreeding coefficient - three levels indicating the number of generations of sib-matings in recent family history    |
+|Diplo_right_eye    | Number of parasites recovered in right eye  |
+|Diplo_left_eye   | Number of parasites recovered in left eye   |
+|Age_at_dissection   | Age in months |
+|Fish_sex  | male or female|
 
 
+### Probiotics and human pathogenic bacteria
+
+`probiotic.csv`
+
+High-through profiling data from intestinal genus-level bacteria (22 subjects from 2 time points; before and after probiotic/placebo intervention)
+
+There are before and after treatments: think carefully about any data manipulations you might need to do?
+
+
+| Variable            | Definition                              |
+|---------------------|-----------------------------------------|
+|time    | timepoint 1 = before, 2 = after |                      
+|gender     | F or M, Female or Male    |
+|subject    | subject ID  |
+|group  | Placebo or LGG (probiotic L. rhamnosus GG)   |
+|ruminococcus_gnavus_abund  | Read count abundance of pathogenic bacteria |
 
 
 # 3. General guide to the report
@@ -368,6 +375,10 @@ knitr::kable(rbind(
 * Tidy the data, this takes time
 
 * Visualise differences and relationships before you start modelling
+
+* Have you included all important variables or hypothesised interaction terms?
+
+* Does the model meet the assumptions of a linear model - does it require any transformations?
 
 ## 6.2 Deadline
 
