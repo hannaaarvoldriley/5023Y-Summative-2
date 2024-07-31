@@ -17,19 +17,19 @@ head(butterflies) #check data has loaded
 
 colnames(butterflies) #view column names
 
-butterflies <- clean_names(butterflies) #change column names to snake_case
+butterflies_tidy <- clean_names(butterflies) #change column names to snake_case
 
-butterflies <- rename(butterflies,
+butterflies_tidy <- rename(butterflies_tidy,
                       "inbreed_coeff" = "ic",
                       "flight_inhibit_idx" = "fii",
                       "weight_mg" = "dry_weight") #rename column names to be more informative while still concise
 
-glimpse(butterflies) #check new column names
+glimpse(butterflies_tidy) #check new column names
 
 
 ## rename text values ----
 
-butterflies <- butterflies %>%
+butterflies_tidy <- butterflies_tidy %>%
   mutate(body_part=case_when(body_part == "drythor" ~ "thorax",
                              body_part == "dryrest" ~ "rest",
                              body_part == "drytotal" ~ "total")) #remove unnecessary characters from text values to make more readable
@@ -37,35 +37,31 @@ butterflies <- butterflies %>%
 
 ## check for errors in data ----
 
-butterflies %>%
+butterflies_tidy %>%
   duplicated() %>%
   sum() #check for duplicated data
 
 
-butterflies %>%
+butterflies_tidy %>%
   is.na() %>%
   sum() #check for missing data
 
 
-
-butterflies %>%
+butterflies_tidy %>%
   summarise(min=min(flight_inhibit_idx, na.rm=TRUE), 
             max=max(flight_inhibit_idx, na.rm=TRUE)) #check for typos in fii
-#one individual's fii is 660 which seems unlikely for a 2 minute period
-#most likely meant to be 66 as this is within the range of other fiis
-#i will remove to be safe
-butterflies <- butterflies %>%
-  filter(flight_inhibit_idx != "660") #filters out the row with the error
+butterflies_tidy <- butterflies_tidy %>%
+  filter(flight_inhibit_idx != "660") #filter out row with error
 
-butterflies %>%
+butterflies_tidy %>%
   group_by(body_part) %>%
   summarise(min=min(weight_mg, na.rm=TRUE),
             max=max(weight_mg, na.rm=TRUE)) #check for typos in weights of body parts
 
-print(butterflies %>% 
+print(butterflies_tidy %>% 
         distinct(inbreed_coeff))#check for typos in inbreeding coefficient (there should only be 3 levels of ic)
 
-print(butterflies %>% 
+print(butterflies_tidy %>% 
         distinct(body_part)) #check for typos in body parts
 
 #make all values 2 decimal places?
