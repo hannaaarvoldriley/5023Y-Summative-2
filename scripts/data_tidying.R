@@ -1,3 +1,5 @@
+rm(list=ls()) #start with a clear environment
+
 # title (change)----
 
 # packages ----
@@ -26,6 +28,10 @@ butterflies_tidy <- rename(butterflies_tidy,
 
 glimpse(butterflies_tidy) #check new column names
 
+## data format ----
+
+butterflies_tidy <- butterflies_tidy %>%
+  mutate(inbreed_coeff = as.factor(inbreed_coeff)) #treat inbreeding coefficient as a factor instead of numeric
 
 ## rename text values ----
 
@@ -52,6 +58,7 @@ butterflies_tidy %>%
             max=max(flight_inhibit_idx, na.rm=TRUE)) #check for typos in fii
 butterflies_tidy <- butterflies_tidy %>%
   filter(flight_inhibit_idx != "660") #filter out row with error
+#can rerun previous line to check
 
 butterflies_tidy %>%
   group_by(body_part) %>%
