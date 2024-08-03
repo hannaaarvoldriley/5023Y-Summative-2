@@ -2,7 +2,7 @@
 rm(list=ls())
 
 # packages ----
-
+library(ggplot2)
 
 # source tidy data script ----
 source("scripts/data_tidying.R")
@@ -12,23 +12,13 @@ ggplot(data = butterflies_tidy,
            y = flight_inhibit_idx))+
   geom_jitter() #ic vs fii - appears to be a correlation
 
+ggplot(data = butterflies_tidy, aes(x = inbreed_coeff)) +
+  geom_jitter(aes(y = total_mg, color = "total_mg")) +
+  geom_jitter(aes(y = rest_mg, color = "rest_mg")) +
+  geom_jitter(aes(y = thorax_mg, color = "thorax_mg")) #ic vs thorax/rest/total dry weights - no apparent correlation visible
 
 
-ggplot(data = butterflies_tidy, 
-       aes(x = inbreed_coeff, 
-           y = weight_mg, 
-           color = body_part)) +
-  geom_jitter() #ic vs weight - no obvious correlation
-
-ggplot(data = butterflies_tidy, 
-       aes(x = weight_mg, 
-           color = body_part, 
-           y = flight_inhibit_idx)) +
-  geom_jitter() #weight vs fii - no obvious correlation
-
-filtered_data <- butterflies_tidy %>% 
-  filter(body_part == "total")
-ggplot(data = filtered_data, 
-       aes(x = weight_mg, 
-           y = flight_inhibit_idx)) +
-  geom_jitter() #tried filtering total, thorax and rest of body to check no correlations between any of those and fii
+ggplot(data = butterflies_tidy, aes(x = flight_inhibit_idx)) +
+  geom_jitter(aes(y = total_mg, color = "total_mg")) +
+  geom_jitter(aes(y = rest_mg, color = "rest_mg")) +
+  geom_jitter(aes(y = thorax_mg, color = "thorax_mg")) #fii vs thorax/rest/total dry weight - appears to be correlation most prominantly in thorax_mg
