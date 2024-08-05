@@ -1,17 +1,28 @@
 # Summative 2 BIO 5023Y
+# An analysis of the impact of inbreeding on flight inhibition in Bicyclus anynana
 
-## ✨ Brief introduction
-This is a solo project assignment for module BIO 5023Y - Data Science for Biologists. This assignment requires data cleaning, exploratory analysis, data visualisation & statistical model building and inference.
+Author: Hanna Aarvold-Riley
 
-*Change this README to represent your project when complete*
-
-## 🎯 Objectives
- 
-- Analyse one dataset contained within this repository
-- Use Markdown to write a formal lab report: hand the output in separately through Blackboard
-- Include all required Rscripts and Rmd files needed to fully reproduce your report here
-- Submit this repo to the GitHub Classroom by the assignment deadline
+This GitHub project is intended to serve as a complete and reproducible pipeline from raw data to a complete and referenced report on the statistical analysis of a provided dataset about inbreeding depression in butterflies.
+The raw data can be found in the "data" folder under "inbreeding_butterfly.csv". In the "project folder" a script called "butterflies.R" provides annotated code walking the reader through my process from raw data, tidy data, exploratory analysis, model fitting to producing figures. A markdown file also in the "projects" folder called "butterflies_report.Rmd" sources this script and compiles figures and text to produce a report on the my findings in the dataset, complete with previous published research, full reported statistical analysis and discussion.
 
 
+The raw data contains the following variables:
+
+Variable - Definition
+-ID -	Individual
+-IC -	Inbreeding coefficient - three levels indicating the number of generations of sib-matings in recent family history
+-FII	- flight inhibition index – the number of times the butterfly settled during a two-minute period when it was being stimulated to take off immediately once it settled
+-body_part -	Thorax or rest of body
+-dry_weight -	The dry weight in (mg) of the part of the butterfly
+This raw data is available as a .csv in the data folder
 
 
+To view the report please first run the entirety of the butterflies.R script followed by the entire butterflies_report.Rmd markdown script, then press knit to generate a pdf.
+
+Packages used:
+-tidyverse
+-janitor
+-dplyr
+-kableExtra
+-ggplot2
