@@ -1,22 +1,17 @@
 ---
-title: "The Impact of Inbreeding and Thoracic Development on Flight Performance in *Bicyclus anynana*: Fitness Consequences and Conservation Implications"
+title: "An analysis of the impact of inbreeding on flight inhibition in *Bicyclus anynana*."
 author: "Hanna Aarvold-Riley"
-date: "2024-08-05"
-output: 
+date: "`r Sys.Date()`"
+output:
   pdf_document:
     extra_dependencies: ["flafter"]
-header-includes:
-  - \usepackage{float}
-  - \floatplacement{figure}{H}
+    fig_caption: true
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
   message = FALSE,
   fig.pos = "H",
-  out.extra = "",
-  fig.width = 6,
-  fig.height = 4)
+  out.extra = "")
 ```
 
 ```{r library, include=FALSE}
@@ -45,27 +40,29 @@ A multiple linear regression model was applied which used inbreeding coefficient
 No transformations were necessary as the relationships between independent, dependent variables were linear, and the residuals met the assumptions of normality and homoscedasticity. The data set was screened for errors and one individual was excluded.   
 I subsequently conducted an analysis of variance to evaluate the significance of the predictors in the model. All analysis was conducted using R version 4.4.1.
 
+\newpage
+
 ## Results and Discussion
 #### Inbreeding coefficient proportional to flight inhibition index  
 
-I hypothesised that individuals with higher inbreeding coefficients would exhibit higher flight inhibition indexes. To test this hypothesis, I fitted a multiple linear regression model, including inbreeding coefficient and thorax weight as predictors, to assess their individual contributions to flight inhibition index. This analysis showed that individuals with higher inbreeding coefficients have on average a 20.7 unit increase in flight inhibition index (95% CI: 9.0-32.4) compared to those with lower inbreeding coefficients (F1,309 = 14.34, P < 0.001, R² = 0.058, Figure 1). These findings indicate increased homozygosity resulting from inbreeding depression inhibits flight performance, a key fitness-related trait, and I can reject the null hypothesis. This underscores the importance of maintaining genetic diversity within butterfly lepidoptera populations and has implications for vulnerable and endangered butterfly species where populations are small, and inbreeding is most likely to occur.  
+I hypothesised that individuals with higher inbreeding coefficients would exhibit higher flight inhibition indexes. To test this hypothesis, I fitted a multiple linear regression model, including inbreeding coefficient and thorax weight as predictors, to assess their individual contributions to flight inhibition index. This analysis showed that individuals with higher inbreeding coefficients have on average a 20.7 unit increase in flight inhibition index (95% CI: 9.0-32.4) compared to those with lower inbreeding coefficients (F1,309 = 14.34, P < 0.001, R² = 0.058, Figure 1, Table 1). These findings indicate increased homozygosity resulting from inbreeding depression inhibits flight performance, a key fitness-related trait, and I can reject the null hypothesis. This underscores the importance of maintaining genetic diversity within butterfly Lepidoptera populations and has implications for vulnerable and endangered butterfly species where populations are small, and inbreeding is most likely to occur.  
 
 
-``` {r, fig.pos='H', include=TRUE}
+```{r, include=TRUE, fig.cap="The impact of inbreeding coefficient on flight inhibition index in Bicyclus anynana. The scatter plot illustrates the relationship between the inbreeding coefficient (F) and the flight inhibition index (measured as the number of times butterflies settled during a 2-minute stimulation period). Each point represents an individual butterfly, with colors corresponding to different levels of the inbreeding coefficient: F = 0 (green), F = 0.25 (blue), and F = 0.375 (purple); a higher F indicates greater degree of inbreeding. The plot includes a linear regression line fitted to the data, showing a significant positive relationship between inbreeding coefficient and flight inhibition index (F1,309 = 14.34, P < 0.001, R² = 0.058). The shaded area around the regression line represents the 95% confidence interval of the fitted model. This suggests that higher inbreeding coefficients are associated with increased flight inhibition."}
 figure1
 
 ```
-``` {r, include=TRUE}
+``` {r, include=TRUE,}
 figure2
 
 ```
 \newpage
 
-### Thorax dry weight as a predictor of flight inhibition index  
+### Thorax dry weight as a predictor of flight inhibition index
 
-Several models were trialled with different variables included while finding the best fitting multiple linear regression model, with the accepted model including thorax dry weight as a predictor in addition to inbreeding coefficient and excluding rest of body weight. The analysis of variance for the chosen model showed that thorax dry weight has on average a 3.1 unit decrease in flight inhibition index per mg increase in thorax mass (95% CI: -5.92 to -0.28) (F1,309 = 4.69, P = 0.031, R² = 0.058, Figure 1). The thorax contains predominantly flight muscles and greater thoracic mass is positively associated with flight performance (Srygley & Chai, 1990) so this result is not unexpected. Further research should investigate the relationship between genetic diversity and thoracic muscle development to better understand the mechanism by which inbreeding depression affects flight inhibition.
+Several models were trialed with different variables included while finding the best fitting multiple linear regression model, with the accepted model including thorax dry weight as a predictor in addition to inbreeding coefficient and excluding rest of body weight. The analysis of variance (Table 2) for the chosen model showed that thorax dry weight has on average a 3.1 unit decrease in flight inhibition index per mg increase in thorax mass (95% CI: -5.92 to -0.28) (F1,309 = 4.69, P = 0.031, R² = 0.058, Figure 2). The thorax contains predominantly flight muscles and greater thoracic mass is positively associated with flight performance (Srygley & Chai, 1990) so this result is not unexpected. Further research should investigate the relationship between genetic diversity and thoracic muscle development to better understand the mechanism by which inbreeding depression affects flight inhibition.
 
-``` {r, include=TRUE}
+``` {r, include=TRUE, fig.cap="Relationship between Thorax Dry Weight and Flight Inhibition Index in Bicyclus anynana. This scatter plot illustrates the correlation between thorax dry weight in mg and flight inhibition index in Bicyclus anynana. Each point represents an individual butterfly, with a linear regression line fitted to the data. The plot shows a significant negative relationship, suggesting that increased thorax dry weight is associated with reduced flight inhibition. The shaded area around the regression line denotes the 95% confidence interval, highlighting the precision of the fitted model."}
 figure3
 ```
 ``` {r, include=TRUE}

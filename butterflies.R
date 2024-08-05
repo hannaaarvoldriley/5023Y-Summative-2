@@ -1,7 +1,7 @@
 rm(list=ls()) #start with a clear environment
 
 
-# An Analysis of the impact of inbreeding on flight inhibition in Bicyclus anynana----
+# An analysis of the impact of inbreeding on flight inhibition in Bicyclus anynana----
 
 #________________----
 
@@ -110,23 +110,22 @@ anova(butterflies_lm8) #perform anova on the model
 figure1 <- ggplot(data = butterflies_tidy, aes(x = factor(inbreed_coeff), y = flight_inhibit_idx)) +
   geom_jitter(aes(color = factor(inbreed_coeff)), width = 0.4, height = 0, alpha = 0.6, size = 2.5) +  #jitter plot
   scale_color_manual(values = c("0" = '#1F9E89', "0.25" = '#31688E', "0.375" = '#440154'),) +  #accessible colours
-  labs(title = "Flight Inhibition Index Across Levels of Inbreeding Coefficient", #title
-       x = "Inbreeding Coefficient Level", #axis labels
+  labs(x = "Inbreeding Coefficient Level", #axis labels
        y = "Flight Inhibition Index",
-       colour = "Inbreeding Coefficient") +
+       colour = "Inbreeding\nCoefficient") +
   theme_minimal() + 
   scale_y_continuous(breaks = seq(0, ceiling(max(butterflies_tidy$flight_inhibit_idx)), by = 5)) + #y axis line breaks
   theme( panel.grid.major.y = element_line(color = "grey", size = 0.2),  #appearance of line breaks
          panel.grid.minor = element_blank(), #remove minor lines
-         legend.title = element_text(size = 12),  #make more aesthetically pleasing
+         legend.title = element_text(size = 8),  #make more aesthetically pleasing
          legend.text = element_text(size = 8),
-         axis.title.y = element_text(size=14),
-         axis.title.x = element_text(size=14))
+         axis.title.y = element_text(size=8),
+         axis.title.x = element_text(size=8))
 
 # figure 2: summary of linear model ----
 
 figure2 <- broom::tidy(butterflies_lm8, conf.int = TRUE) %>% #tidy and add confidence intervals
-  kbl(caption = "Summary of Linear Model", digits = 3) %>% #figure legend
+  kbl(caption="Table summarising the Multiple Linear Regression Analysis for Flight Inhibition Index. This table presents the results of the linear regression analysis assessing the effects of inbreeding coefficient and thorax dry weight on the flight inhibition index in Bicyclus anynana. The regression model indicates that the inbreeding coefficient is significantly positively associated with flight inhibition index (Estimate = 20.7, SE = 4.9, t = 4.2, p < 0.001), suggesting that higher inbreeding levels increase flight inhibition. Conversely, thorax dry weight has a significant negative effect on the flight inhibition index (Estimate = -3.1, SE = 1.4, t = -2.2, p = 0.031), indicating that greater thorax weight is associated with reduced flight inhibition. The R-squared value of 0.058 reflects the proportion of variance in flight inhibition explained by the model.", digits = 3) %>% #figure legend
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
   kable_styling(bootstrap_options = c("bordered")) #make more aesthetically pleasing
 
@@ -135,24 +134,23 @@ figure2 <- broom::tidy(butterflies_lm8, conf.int = TRUE) %>% #tidy and add confi
 
 figure3 <- ggplot(data = butterflies_tidy, aes(x = thorax_mg, y = flight_inhibit_idx)) +
   geom_point(aes(color = factor(inbreed_coeff)), size = 1.8, alpha = 0.85) +  #scatter plot
-  geom_smooth(method = "lm", se = FALSE, color = "#440154") +  # Add a regression line
+  geom_smooth(method = "lm", se = TRUE, color = "#440154") +  # Add a regression line
   scale_color_manual(values = c("0" = '#1F9E89', "0.25" = '#6DCD59', "0.375" = '#3E4989')) +  #accessible colours
-  labs(title = "Scatter Plot of Thorax Dry Weight vs Flight Inhibition Index", #titles
-       x = "Thorax Dry Weight (mg)",
+  labs(x = "Thorax Dry Weight (mg)", #labels
        y = "Flight Inhibition Index",
-       colour = "Inbreeding Coefficient") +
+       colour = "Inbreeding\nCoefficient") +
   theme_minimal() + 
   scale_y_continuous(breaks = seq(0, ceiling(max(butterflies_tidy$flight_inhibit_idx)), by = 10)) +  #yaxis breaks line breaks
-  theme(legend.title = element_text(size = 12),  #make titles more balanced
-        legend.text = element_text(size = 10),  
-        axis.title.x = element_text(size = 14), 
-        axis.title.y = element_text(size = 14)) 
+  theme(legend.title = element_text(size = 8),  #make titles more balanced
+        legend.text = element_text(size = 8),  
+        axis.title.x = element_text(size = 8), 
+        axis.title.y = element_text(size = 8))
 
 # figure 4: anova table ----
 
 figure4 <- anova(butterflies_lm8) %>%
   as.data.frame() %>%
   `rownames<-`(c("Inbreeding Coefficient", "Thorax Dry Weight (mg)", "Residuals")) %>%
-  kbl(caption = "ANOVA Table", digits = 3) %>%
+  kbl(caption = "Results of the ANOVA for Flight Inhibition Index in Bicyclus anynana. This table presents the analysis of variance assessing the effect of inbreeding coefficient and thorax dry weight on the flight inhibition index. The ANOVA showed statistical significant in both inbreeding coefficient (F(2, 308) = 12.5, p < 0.001) and thorax dry weight (F(1, 308) = 5.6, p = 0.018), indicating they both influence flight inhibition in butterflies. The overall model explains a proportion of the variance, with an F-statistic of 9.4 (p < 0.001), suggesting the predictors significantly impact the dependent variable..") %>%
   kable_styling(bootstrap_options = c("striped", "bordered"))
 
