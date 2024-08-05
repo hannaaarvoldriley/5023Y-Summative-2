@@ -13,7 +13,7 @@ library(janitor) # clean data names
 
 # 📂 IMPORT DATA ----
 
-dinosaur <- read_csv("Examples/Titanosaur.csv")
+dinosaur <- read_csv("examples/Titanosaur.csv")
 
 
 #__________________________----
