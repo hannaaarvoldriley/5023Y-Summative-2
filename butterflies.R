@@ -10,7 +10,8 @@ rm(list=ls()) #start with a clear environment
 library(tidyverse) # tidy data packages
 library(janitor) # clean data names
 library(dplyr) # data manipulation
-library(kableExtra)
+library(kableExtra) # present tables
+library(ggplot2) # produce plots
 
 ## IMPORT DATA ----
 butterflies <- read_csv("data/inbreeding_butterfly.csv")
